@@ -1,8 +1,11 @@
-import React from 'react'
+import Sort from './_components/page'
 
 const SideBar = () => {
   return (
-    <div>SideBar</div>
+    <div className='flex flex-col ml-6 mr-4'>
+      <Sort />
+      { /* <Region /> */}
+    </div>
   )
 }
 

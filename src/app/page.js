@@ -8,8 +8,8 @@ export default function Home() {
       <img src="/Logo.svg" alt="Logo" className="pt-32"/>
         <div className="flex flex-col bg-[#1C1D1F] rounded-2xl w-[1200px] h-[870px] mt-24 border-[0.1px] border-[#6C727F]">
           <SearchBar/>
-          <div className="flex">
-            <SideBar />
+          <div className="flex mt-12">
+            <SideBar/>
             <DashBoard/>
           </div>
         </div>
