@@ -1,5 +1,5 @@
 import DashBoard from "./_components/_Dashboard/page";
-import SearchBar from "./_components/_SearchBar/page";
+import SearchBar from "./_components/_SideBar/_components/_SearchBar/page";
 import SideBar from "./_components/_SideBar/page";
 
 export default function Home() {
