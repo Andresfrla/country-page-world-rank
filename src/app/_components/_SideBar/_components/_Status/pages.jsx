@@ -11,8 +11,8 @@ const BeVietnamPro = Be_Vietnam_Pro({
 
 const Status = () => {
   return (
-    <div>
-      <h3 className='text-[#6C727F] text-sm mt-3'>Status</h3>
+    <div className='pl-4 '>
+      <h3 className='text-[#6C727F] text-sm mt-3 text-left ml-[-10px]'>Status</h3>
       <FormGroup className='mt-2'>
         <div className='mb-2'>
         <FormControlLabel control={<Checkbox sx={{
@@ -25,7 +25,8 @@ const Status = () => {
         }}/>} label={<span className={`${BeVietnamPro.className} font-bold text-[#D2D5DA] text-base ml-2`}>Member of The United Nations</span>}/>
         </div>
         <FormControlLabel  
-        control={<Checkbox sx={{
+        control={<Checkbox
+          sx={{
           color: '#6C727F',
           '& .MuiSvgIcon-root': {
             fontSize: '1.75rem' 
