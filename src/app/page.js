@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import DashBoard from "./_components/_Dashboard/page";
 import SearchBar from "./_components/_SideBar/_components/_SearchBar/page";
 import SideBar from "./_components/_SideBar/page";
-import { fetchData } from "./_utils/_UseApiData";
+import { fetchData } from "./_utils/_GetAllCountries";
 
 export default function Home() {
   const [data, setData] = useState([]);

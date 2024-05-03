@@ -33,27 +33,37 @@ const DashBoard = ({data}) => {
           {data.map((country) => (
             <TableRow  key={country.name.common} className="flex space-x-12 items-center justify-center mt-4 font-medium text-[#D2D5DA] text-base">
               <TableCell className="w-[50px] font-medium text-[#D2D5DA] text-base border-none p-0"> 
-                <Link href={`/${country.name.common}`}>
+                <Link 
+                  href={`/Detail/${country.name.common}`}
+                >
                     <img src={country.flags.png} style={{ width: '50px', height: '38px', objectFit: 'cover' }} className="rounded"/>
                 </Link>
               </TableCell>
               <TableCell className="w-40 font-medium text-[#D2D5DA] text-base border-none">
-                <Link href={`/${country.name.common}`}>
+                <Link 
+                  href={`/Detail/${country.name.common}`}
+                >
                   <Typography className={`${BeVietnamPro.className}`}>{country.name.common}</Typography>
                 </Link>
               </TableCell>
               <TableCell className="w-36 text-[#D2D5DA] text-base border-none">
-                <Link href={`/${country.name.common}`}>
+                <Link 
+                  href={`/Detail/${country.name.common}`}
+                >
                   <Typography className={`${BeVietnamPro.className}`}>{formatNumber(country.population)}</Typography>
                 </Link>              
               </TableCell>
               <TableCell className="w-40 text-[#D2D5DA] text-base border-none">
-                <Link href={`/${country.name.common}`}>
+                <Link 
+                  href={`/Detail/${country.name.common}`}
+                >
                   <Typography className={`${BeVietnamPro.className}`}>{formatNumber(country.area)}</Typography>
                 </Link>              
               </TableCell>
               <TableCell className="w-36 text-[#D2D5DA] text-base border-none">
-                <Link href={`/${country.name.common}`}>
+                <Link 
+                  href={`/Detail/${country.name.common}`}
+                >
                   <Typography className={`${BeVietnamPro.className}`}>{country.region}</Typography>
                 </Link>              
               </TableCell>
