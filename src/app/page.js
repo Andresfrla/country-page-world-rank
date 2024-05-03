@@ -1,8 +1,22 @@
+"use client"
+import { useEffect, useState } from "react";
 import DashBoard from "./_components/_Dashboard/page";
 import SearchBar from "./_components/_SideBar/_components/_SearchBar/page";
 import SideBar from "./_components/_SideBar/page";
+import { fetchData } from "./_utils/_UseApiData";
 
 export default function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchingData = async () => {
+      const countriesData = await fetchData();
+      setData(countriesData);
+    }
+    
+    fetchingData();
+  }, [])
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-[url('../../public/hero-image-wr.jpg')] bg-[#1B1D1F] bg-contain bg-no-repeat">
       <img src="/Logo.svg" alt="Logo" className="pt-32"/>
@@ -10,7 +24,7 @@ export default function Home() {
           <SearchBar/>
           <div className="flex mt-12">
             <SideBar/>
-            <DashBoard/>
+            <DashBoard data={data}/>
           </div>
         </div>
     </main>

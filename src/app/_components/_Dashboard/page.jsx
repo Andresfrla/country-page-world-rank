@@ -1,8 +1,5 @@
-"use client"
 import { formatNumber } from "@/app/_utils/_FormatNumber";
-import { fetchData } from "@/app/_utils/_UseApiData.js";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
 import { Be_Vietnam_Pro } from 'next/font/google';
 import Link from "next/link";
 
@@ -11,19 +8,7 @@ const BeVietnamPro = Be_Vietnam_Pro({
   weight: "500"
 })
 
-const DashBoard = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchingData = async () => {
-      const countriesData = await fetchData();
-      setData(countriesData);
-    }
-    
-    fetchingData();
-  }, [])
-  
-
+const DashBoard = ({data}) => {
   return (
     <div>
     <TableContainer 
