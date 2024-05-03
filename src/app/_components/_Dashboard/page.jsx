@@ -3,7 +3,7 @@ import { formatNumber } from "@/app/_utils/_FormatNumber";
 import { fetchData } from "@/app/_utils/_UseApiData.js";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-
+import Paper from '@mui/material/Paper';
 
 const DashBoard = () => {
   const [data, setData] = useState([]);
@@ -19,8 +19,15 @@ const DashBoard = () => {
   
 
   return (
-    <TableContainer style={{ maxHeight: 'calc(100vh - 250px)', overflowY: 'auto' }}>
-      <Table className="w-full flex flex-col" stickyHeader aria-label="sticky table">
+    <div>
+    <TableContainer 
+    style={{
+    maxHeight: 'calc(100vh - 250px)',
+    overflow: 'auto'
+  }}
+    className="custom-scrollbar"
+  >
+      <Table className="w-full flex flex-col" stickyHeader aria-label="simple table">
         <TableHead className="mb-5" style={{ position: 'sticky', top: '0', zIndex: '999', background: '#fff' }}>
           <TableRow className="flex space-x-12 text-sm text-[#6C727F]">
             <TableCell className="w-[50px] text-left">Flag</TableCell>
@@ -54,6 +61,7 @@ const DashBoard = () => {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 };
 

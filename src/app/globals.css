@@ -33,3 +33,20 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #6C727F;
+    border-radius: 10px;
+    visibility: hidden;
+  }
+
+  .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }
+}
