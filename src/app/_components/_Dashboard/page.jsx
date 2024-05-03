@@ -4,6 +4,7 @@ import { fetchData } from "@/app/_utils/_UseApiData.js";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Be_Vietnam_Pro } from 'next/font/google';
+import Link from "next/link";
 
 const BeVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
@@ -47,19 +48,29 @@ const DashBoard = () => {
           {data.map((country) => (
             <TableRow  key={country.name.common} className="flex space-x-12 items-center justify-center mt-4 font-medium text-[#D2D5DA] text-base">
               <TableCell className="w-[50px] font-medium text-[#D2D5DA] text-base border-none p-0"> 
-                <img src={country.flags.png} style={{ width: '50px', height: '38px', objectFit: 'cover' }} className="rounded"/>
+                <Link href={`/${country.name.common}`}>
+                    <img src={country.flags.png} style={{ width: '50px', height: '38px', objectFit: 'cover' }} className="rounded"/>
+                </Link>
               </TableCell>
               <TableCell className="w-40 font-medium text-[#D2D5DA] text-base border-none">
-                <Typography className={`${BeVietnamPro.className}`}>{country.name.common}</Typography>
+                <Link href={`/${country.name.common}`}>
+                  <Typography className={`${BeVietnamPro.className}`}>{country.name.common}</Typography>
+                </Link>
               </TableCell>
               <TableCell className="w-36 text-[#D2D5DA] text-base border-none">
-                <Typography className={`${BeVietnamPro.className}`}>{formatNumber(country.population)}</Typography>
+                <Link href={`/${country.name.common}`}>
+                  <Typography className={`${BeVietnamPro.className}`}>{formatNumber(country.population)}</Typography>
+                </Link>              
               </TableCell>
               <TableCell className="w-40 text-[#D2D5DA] text-base border-none">
-                <Typography className={`${BeVietnamPro.className}`}>{formatNumber(country.area)}</Typography>
+                <Link href={`/${country.name.common}`}>
+                  <Typography className={`${BeVietnamPro.className}`}>{formatNumber(country.area)}</Typography>
+                </Link>              
               </TableCell>
               <TableCell className="w-36 text-[#D2D5DA] text-base border-none">
-                <Typography className={`${BeVietnamPro.className}`}>{country.region}</Typography>
+                <Link href={`/${country.name.common}`}>
+                  <Typography className={`${BeVietnamPro.className}`}>{country.region}</Typography>
+                </Link>              
               </TableCell>
             </TableRow>
           ))}
