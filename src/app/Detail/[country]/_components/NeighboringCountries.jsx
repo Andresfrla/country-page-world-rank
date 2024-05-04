@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getOneCountryByCode } from '@/app/_utils/_GetOneCountryByCode';
+import Link from 'next/link';
 
 const NeighboringCountries = ({ borders }) => {
     const [flags, setFlags] = useState({});
@@ -27,10 +28,12 @@ const NeighboringCountries = ({ borders }) => {
             <div className='flex flex-row gap-4'>
                 {borders.map((countryCode) => (
                     <div key={countryCode} >
-                        <img 
-                        className='w-20 h-14 rounded-md mb-2'
-                        src={flags[countryCode]} alt={`Flag of ${countryCode}`} />
-                        <span className="text-base ml-2">{countryNames[countryCode]}</span>
+                        <Link href={`/Detail/${countryNames[countryCode]}`}>
+                            <img 
+                            className='w-20 h-14 rounded-md mb-2'
+                            src={flags[countryCode]} style={{ objectFit: 'cover' }} alt={`Flag of ${countryCode}`} />
+                            <span className="text-base ml-2">{countryNames[countryCode]}</span>
+                        </Link>
                     </div>
                 ))}
             </div>

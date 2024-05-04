@@ -8,6 +8,7 @@ import CountryHeader from './_components/CountryHeader'
 import DemographicInfo from './_components/DemographicInfo'
 import OtherInformation from './_components/OtherInformation'
 import NeighboringCountries from './_components/NeighboringCountries'
+import Link from 'next/link'
 
 const CountryDetail = () => {
   const { country } = useParams()
@@ -30,7 +31,9 @@ const CountryDetail = () => {
       <Typography>Loading...</Typography>
     ) : (
       <div className="flex min-h-screen flex-col items-center bg-[url('../../public/hero-image-wr.jpg')] bg-[#1B1D1F] bg-contain bg-no-repeat">
-        <img src="/Logo.svg" alt="Logo" className="pt-32 w-48 h-auto"/>
+        <Link href="/">
+          <img src="/Logo.svg" alt="Logo" className="pt-32 w-48 h-auto"/>
+        </Link>
         <div className="flex flex-col items-center bg-[#1C1D1F] rounded-2xl w-[720px] h-[945px] mt-28 border-[0.1px] border-[#6C727F]">
           <CountryHeader
             commonName={countryData.name.common}
