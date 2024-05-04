@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import CountryHeader from './_components/CountryHeader'
 import DemographicInfo from './_components/DemographicInfo'
 import OtherInformation from './_components/OtherInformation'
+import NeighboringCountries from './_components/NeighboringCountries'
 
 const CountryDetail = () => {
   const { country } = useParams()
@@ -48,7 +49,7 @@ const CountryDetail = () => {
             continents={countryData.region}
           />
           <NeighboringCountries
-              
+            borders={countryData.borders}
           />
         </div>
       </div>
