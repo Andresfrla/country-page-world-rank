@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Region = () => {
+
   return (
     <div className='mt-12'>
         <h3 className='text-[#6C727F] text-sm mb-3'>Region</h3>

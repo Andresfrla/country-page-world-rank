@@ -8,7 +8,8 @@ const BeVietnamPro = Be_Vietnam_Pro({
   weight: "500"
 })
 
-const DashBoard = ({data}) => {
+const DashBoard = ({data, searchValue}) => {
+
   return (
     <div>
     <TableContainer 
