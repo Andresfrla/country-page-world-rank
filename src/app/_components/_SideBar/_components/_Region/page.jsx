@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Region = ({selectedRegions}) => {
-  console.log(selectedRegions)
 
   return (
     <div className='mt-12'>
