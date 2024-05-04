@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 
 import CountryHeader from './_components/CountryHeader'
 import DemographicInfo from './_components/DemographicInfo'
+import OtherInformation from './_components/OtherInformation'
 
 const CountryDetail = () => {
   const { country } = useParams()
@@ -38,6 +39,16 @@ const CountryDetail = () => {
           <DemographicInfo
             population={countryData.population}
             area={countryData.area}
+          />
+          <OtherInformation 
+            capital={countryData.capital}
+            subregion={countryData.subregion}
+            language={countryData.languages}
+            currencies={countryData.currencies}
+            continents={countryData.region}
+          />
+          <NeighboringCountries
+              
           />
         </div>
       </div>
