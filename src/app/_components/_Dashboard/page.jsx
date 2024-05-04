@@ -2,13 +2,20 @@ import { formatNumber } from "@/app/_utils/_FormatNumber";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import { Be_Vietnam_Pro } from 'next/font/google';
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const BeVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
   weight: "500"
 })
 
-const DashBoard = ({data, searchValue}) => {
+const DashBoard = ({data, selectedSortBy}) => {
+  const [sort, setSort ] = useState('Population')
+
+  useEffect(() => (
+    setSort(selectedSortBy)
+  ))
+  console.log(sort)
 
   return (
     <div>

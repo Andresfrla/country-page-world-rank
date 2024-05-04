@@ -9,6 +9,7 @@ import filterData from "./_utils/FilterData";
 export default function Home() {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  const [selectedSortBy, setSelectedSortBy] = useState('Population');
 
   const handleSearchInputChange = (event) => {
     setSearchValue(event.target.value);
@@ -25,6 +26,10 @@ export default function Home() {
   
   const filteredData = filterData(data, searchValue);
 
+  const handleSortChange = (selectedSort) => {
+    setSelectedSortBy(selectedSort);
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-[url('../../public/hero-image-wr.jpg')] bg-[#1B1D1F] bg-contain bg-no-repeat">
       <img src="/Logo.svg" alt="Logo" className="pt-32"/>
@@ -37,9 +42,12 @@ export default function Home() {
           <div className="flex mt-12">
             <SideBar
               filterData={filteredData}
+              selectedSortBy={selectedSortBy}
             />
             <DashBoard 
               data={filteredData}
+              selectedSortBy={selectedSortBy}
+              onSortChange={handleSortChange}
             />
           </div>
         </div>

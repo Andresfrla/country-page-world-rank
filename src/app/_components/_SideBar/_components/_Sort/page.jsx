@@ -4,11 +4,12 @@ import { MenuButton } from '@mui/base/MenuButton';
 import { Menu } from '@mui/base/Menu';
 import { MenuItem } from '@mui/base/MenuItem';
 
-const Sort = () => {
-  const [sortBy, setSortBy] = React.useState('population')
+const Sort = ({selectedSort}) => {
+  const [sortBy, setSortBy] = React.useState('Population')
 
   const handleSortChange = (menuItem) => {
     setSortBy(menuItem)
+    selectedSort(menuItem)
   };
 
   React.useEffect(() => {
@@ -27,25 +28,25 @@ const Sort = () => {
           className="h-[110px] w-64 border p-3 border-[#282B30] bg-[#282B30] font-bold text-[#D2D5DA] rounded-xl">
           <MenuItem 
           onClick={() => handleSortChange('Name')}
-          className='hover:bg-sky-700 cursor-pointer'
+          className='hover:bg-sky-700 cursor-pointer rounded-md pl-3'
           >
             Name
         </MenuItem>
           <MenuItem 
           onClick={() => handleSortChange('Population')}
-          className='hover:bg-sky-700 cursor-pointer'
+          className='hover:bg-sky-700 cursor-pointer rounded-md pl-3'
           >
             Population
           </MenuItem>
           <MenuItem 
           onClick={() => handleSortChange('Area (km²)')}
-          className='hover:bg-sky-700 cursor-pointer'
+          className='hover:bg-sky-700 cursor-pointer rounded-md pl-3'
           >
             Area (km²)
           </MenuItem>
           <MenuItem 
           onClick={() => handleSortChange('Region')}
-          className='hover:bg-sky-700 cursor-pointer'
+          className='hover:bg-sky-700 cursor-pointer rounded-md pl-3'
           >
             Region
           </MenuItem>
