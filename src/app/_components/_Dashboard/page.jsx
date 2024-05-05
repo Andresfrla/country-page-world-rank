@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { formatNumber } from "@/app/_utils/_FormatNumber";
 import { Be_Vietnam_Pro } from 'next/font/google';
+import { Loader } from "./_components/Loader";
 
 const BeVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
@@ -30,7 +31,13 @@ const DashBoard = ({ data, selectedSortBy }) => {
 
   return (
     <div>
-      <TableContainer
+      {
+        data.length === 0 ? 
+        (
+          <Loader />  
+        )
+        : 
+        <TableContainer
         style={{
           maxHeight: 'calc(100vh - 250px)',
           overflow: 'auto'
@@ -40,18 +47,22 @@ const DashBoard = ({ data, selectedSortBy }) => {
         <Table className="w-full flex flex-col pl-5" stickyHeader aria-label="simple table">
           <TableHead style={{ position: 'sticky', top: '0', zIndex: '999', background: '#1C1D1F' }}>
             <TableRow className="flex space-x-12 text-sm text-[#6C727F] border-b-2 border-[#6C727F]">
-              <TableCell className="w-[50px] text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">Flag</TableCell>
-              <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                Name
-              </TableCell>
-              <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                Population
+              <TableCell className={`w-[50px] text-left text-sm text-[#6C727F] bg-transparent border-none pl-0 ${BeVietnamPro}`}>
+                <Typography className={`${BeVietnamPro.className}`}>Flag</Typography>
               </TableCell>
               <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                Area (km²)
+                <Typography className={`${BeVietnamPro.className}`}>Name</Typography>
               </TableCell>
               <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                Region
+               <Typography className={`${BeVietnamPro.className}`}>Population</Typography>
+              </TableCell>
+              <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
+               <Typography className={`${BeVietnamPro.className}`}>Area (km²)</Typography>
+              </TableCell>
+              <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
+                <Typography className={`${BeVietnamPro.className}`}>
+                  Region
+                </Typography>
               </TableCell>
             </TableRow>
           </TableHead>
@@ -88,6 +99,8 @@ const DashBoard = ({ data, selectedSortBy }) => {
           </TableBody>
         </Table>
       </TableContainer>
+      }
+      
     </div>
   );
 };
