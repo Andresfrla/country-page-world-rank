@@ -47,7 +47,7 @@ export default function Home() {
               sortBy={handleSortChange}
             />
             <DashBoard 
-              data={filteredData}
+              data={sortedData}
             />
           </div>
         </div>

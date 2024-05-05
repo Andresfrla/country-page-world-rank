@@ -56,7 +56,7 @@ const DashBoard = ({ data, selectedSortBy }) => {
                 <button>Area (km²)</button>
               </TableCell>
               <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                <button>Region</button>
+                <button >Region</button>
               </TableCell>
             </TableRow>
           </TableHead>
