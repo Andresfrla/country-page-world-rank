@@ -18,7 +18,6 @@ const sortingFunctions = {
 
 const DashBoard = ({ data, selectedSortBy }) => {
   const [sortedData, setSortedData] = useState(data);
-  const [sortDirection, setSortDirection] = useState(null);
 
   useEffect(() => {
     const sortData = () => {
@@ -27,15 +26,7 @@ const DashBoard = ({ data, selectedSortBy }) => {
     };
 
     setSortedData(sortData());
-  }, [data, selectedSortBy, sortDirection]);
-
-  const handleSort = (sortBy) => {
-    if (sortBy === sortDirection) {
-      setSortDirection(null);
-    } else {
-      setSortDirection(sortBy);
-    }
-  };
+  }, [data, selectedSortBy]);
 
   return (
     <div>
