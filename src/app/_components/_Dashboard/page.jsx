@@ -9,29 +9,33 @@ const BeVietnamPro = Be_Vietnam_Pro({
   weight: "500"
 });
 
+const sortingFunctions = {
+  Population: (a, b) => b.population - a.population,
+  Name: (a, b) => a.name.common.localeCompare(b.name.common),
+  "Area (km²)": (a, b) => b.area - a.area,
+  Region: (a, b) => a.region.localeCompare(b.region)
+};
+
 const DashBoard = ({ data, selectedSortBy }) => {
-  const [sort, setSort] = useState('');
   const [sortedData, setSortedData] = useState(data);
+  const [sortDirection, setSortDirection] = useState(null);
 
   useEffect(() => {
     const sortData = () => {
-      switch (sort) {
-        case 'Population':
-          return [...data].sort((a, b) => b.population - a.population);
-        case 'Name':
-          return [...data].sort((a, b) => a.name.common.localeCompare(b.name.common));
-        case 'Area (km²)':
-          return [...data].sort((a, b) => b.area - a.area);
-        case 'Region':
-          return [...data].sort((a, b) => a.region.localeCompare(b.region));
-        default:
-          return data;
-      }
+      const sorted = [...data].sort(sortingFunctions[selectedSortBy]);
+      return sorted;
     };
 
-    const sorted = sortData();
-    setSortedData(sorted);
-  }, [data, sort, selectedSortBy]);
+    setSortedData(sortData());
+  }, [data, selectedSortBy, sortDirection]);
+
+  const handleSort = (sortBy) => {
+    if (sortBy === sortDirection) {
+      setSortDirection(null);
+    } else {
+      setSortDirection(sortBy);
+    }
+  };
 
   return (
     <div>
