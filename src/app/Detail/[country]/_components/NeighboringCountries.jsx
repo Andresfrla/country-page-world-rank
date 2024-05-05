@@ -6,6 +6,7 @@ const NeighboringCountries = ({ borders }) => {
     const [flags, setFlags] = useState({});
     const [countryNames, setCountryNames] = useState({});
 
+    if(borders) {
     useEffect(() => {
         const fetchingFlags = async () => {
             const flagsData = {};
@@ -20,13 +21,13 @@ const NeighboringCountries = ({ borders }) => {
         };
 
         fetchingFlags();
-    }, [borders]);
+    }, [borders]);}
 
     return (
         <div className='flex flex-col w-full justify-start p-5'>
             <h2 className='text-xl font-bold text-[#6C727F] mb-5'>Neighboring Countries</h2>
             <div className='flex flex-row gap-4'>
-                {borders.map((countryCode) => (
+                {borders ? borders.map((countryCode) => (
                     <div key={countryCode} >
                         <Link href={`/Detail/${countryNames[countryCode]}`}>
                             <img 
@@ -34,8 +35,8 @@ const NeighboringCountries = ({ borders }) => {
                             src={flags[countryCode]} style={{ objectFit: 'cover' }} alt={`Flag of ${countryCode}`} />
                             <span className="text-base ml-2">{countryNames[countryCode]}</span>
                         </Link>
-                    </div>
-                ))}
+                    </div> 
+                )) : <h1>No borders</h1>}
             </div>
         </div>
     );

@@ -42,16 +42,16 @@ const DashBoard = ({ data, selectedSortBy }) => {
             <TableRow className="flex space-x-12 text-sm text-[#6C727F] border-b-2 border-[#6C727F]">
               <TableCell className="w-[50px] text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">Flag</TableCell>
               <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                <button>Name</button>
+                Name
               </TableCell>
               <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                <button>Population</button>
+                Population
               </TableCell>
               <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                <button>Area (km²)</button>
+                Area (km²)
               </TableCell>
               <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                <button >Region</button>
+                Region
               </TableCell>
             </TableRow>
           </TableHead>

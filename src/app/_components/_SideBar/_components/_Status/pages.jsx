@@ -27,18 +27,13 @@ const Status = () => {
         <FormControlLabel  
         control={<Checkbox
           sx={{
-          color: '#6C727F',
-          '& .MuiSvgIcon-root': {
-            fontSize: '1.75rem' 
-          },
-          '&.Mui-checked': {
+            color: '#6C727F',
             '& .MuiSvgIcon-root': {
-              color: '#6C727F',
-            }
-          },
-          width: '24px',
-          height: '24px',
-        }}
+              fontSize: '1.75rem' 
+            },
+            width: '24px',
+            height: '24px',
+          }}
           className='font-bold text-[#D2D5DA] text-base'
         />} label={<span className={`${BeVietnamPro.className} text-[#D2D5DA] text-base font-bold ml-2`}>Independent</span>} />
       </FormGroup>
