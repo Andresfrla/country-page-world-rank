@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Region from './_components/_Region/page'
 import Sort from './_components/_Sort/page'
 import Status from './_components/_Status/pages'
 
-const SideBar = ({filterData, selectedSortBy}) => {
+const SideBar = ({ filterData, sortBy}) => {
   const selectedRegions = [...new Set(filterData.map(region => region.region))];
-  const [selectedSort, setSelectedSort] = useState('Population')
+  const [selectedArgument, setSelectedArgument] = useState('Population')
 
   const handleSortChange = (menuItem) => {
-    setSelectedSort(menuItem)
+    setSelectedArgument(menuItem)
+    sortBy(menuItem)
   }
 
   return (
@@ -24,4 +25,4 @@ const SideBar = ({filterData, selectedSortBy}) => {
   )
 }
 
-export default SideBar
+export default SideBar;

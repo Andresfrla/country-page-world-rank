@@ -5,14 +5,19 @@ import SearchBar from "./_components/_SideBar/_components/_SearchBar/page";
 import SideBar from "./_components/_SideBar/page";
 import { fetchData } from "./_utils/_GetAllCountries";
 import filterData from "./_utils/FilterData";
+import sortData from "./_utils/SortData";
 
 export default function Home() {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState('');
-  const [selectedSortBy, setSelectedSortBy] = useState('Population');
+  const [sortBy, setSortBy] = useState('Population')
 
   const handleSearchInputChange = (event) => {
     setSearchValue(event.target.value);
+  };
+  
+  const handleSortChange = (menuItem) => {
+    setSortBy(menuItem)
   };
 
   useEffect(() => {
@@ -25,10 +30,7 @@ export default function Home() {
   }, [])
   
   const filteredData = filterData(data, searchValue);
-
-  const handleSortChange = (selectedSort) => {
-    setSelectedSortBy(selectedSort);
-  };
+  const sortedData = sortData(filteredData, sortBy);
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-[url('../../public/hero-image-wr.jpg')] bg-[#1B1D1F] bg-contain bg-no-repeat">
@@ -42,12 +44,10 @@ export default function Home() {
           <div className="flex mt-12">
             <SideBar
               filterData={filteredData}
-              selectedSortBy={selectedSortBy}
+              sortBy={handleSortChange}
             />
             <DashBoard 
               data={filteredData}
-              selectedSortBy={selectedSortBy}
-              onSortChange={handleSortChange}
             />
           </div>
         </div>

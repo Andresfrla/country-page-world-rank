@@ -1,21 +1,17 @@
-import { formatNumber } from "@/app/_utils/_FormatNumber";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
-import { Be_Vietnam_Pro } from 'next/font/google';
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { formatNumber } from "@/app/_utils/_FormatNumber";
+import { Be_Vietnam_Pro } from 'next/font/google';
 
 const BeVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],
   weight: "500"
-})
+});
 
-const DashBoard = ({data, selectedSortBy}) => {
-  const [sort, setSort ] = useState('Population')
-  const [sortedData, setSortedData] = useState(data)
-
-  useEffect(() => (
-    setSort(selectedSortBy)
-  ),[])
+const DashBoard = ({ data, selectedSortBy }) => {
+  const [sort, setSort] = useState('');
+  const [sortedData, setSortedData] = useState(data);
 
   useEffect(() => {
     const sortData = () => {
@@ -24,7 +20,7 @@ const DashBoard = ({data, selectedSortBy}) => {
           return [...data].sort((a, b) => b.population - a.population);
         case 'Name':
           return [...data].sort((a, b) => a.name.common.localeCompare(b.name.common));
-        case 'Area':
+        case 'Area (km²)':
           return [...data].sort((a, b) => b.area - a.area);
         case 'Region':
           return [...data].sort((a, b) => a.region.localeCompare(b.region));
@@ -35,7 +31,7 @@ const DashBoard = ({data, selectedSortBy}) => {
 
     const sorted = sortData();
     setSortedData(sorted);
-  }, [data, sort]);
+  }, [data, sort, selectedSortBy]);
 
   return (
     <div>
@@ -51,16 +47,16 @@ const DashBoard = ({data, selectedSortBy}) => {
             <TableRow className="flex space-x-12 text-sm text-[#6C727F] border-b-2 border-[#6C727F]">
               <TableCell className="w-[50px] text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">Flag</TableCell>
               <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                <button onClick={() => setSort('Name')}>Name</button>
+                <button>Name</button>
               </TableCell>
               <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                <button onClick={() => setSort('Population')}>Population</button>
+                <button>Population</button>
               </TableCell>
               <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                <button onClick={() => setSort('Area')}>Area (km²)</button>
+                <button>Area (km²)</button>
               </TableCell>
               <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
-                <button onClick={() => setSort('Region')}>Region</button>
+                <button>Region</button>
               </TableCell>
             </TableRow>
           </TableHead>
