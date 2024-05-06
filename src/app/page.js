@@ -21,6 +21,10 @@ export default function Home() {
     setSortBy(menuItem)
   };
 
+  const handleStatus = (status) => {
+    setAppStatus(status)
+  }
+
   useEffect(() => {
     const fetchingData = async () => {
       const countriesData = await fetchData();
@@ -29,6 +33,8 @@ export default function Home() {
     
     fetchingData();
   }, [])
+
+  console.log(appStatus)
   
   const filteredData = filterData(data, searchValue);
   const sortedData = sortData(filteredData, sortBy);
@@ -46,6 +52,7 @@ export default function Home() {
             <SideBar
               filterData={filteredData}
               sortBy={handleSortChange}
+              handleStatus={handleStatus}
             />
             <DashBoard 
               data={sortedData}
