@@ -11,6 +11,7 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [sortBy, setSortBy] = useState('Population')
+  const [appStatus, setAppStatus] = useState({});
 
   const handleSearchInputChange = (event) => {
     setSearchValue(event.target.value);

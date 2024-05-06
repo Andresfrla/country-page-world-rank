@@ -3,10 +3,15 @@ import Region from './_components/_Region/page'
 import Sort from './_components/_Sort/page'
 import Status from './_components/_Status/pages'
 
-const SideBar = ({ filterData, sortBy}) => {
+const SideBar = ({ filterData, sortBy }) => {
   const selectedRegions = [...new Set(filterData.map(region => region.region))];
   const [selectedArgument, setSelectedArgument] = useState('Population')
+  const [status, setStatus] = useState({});
 
+  const onStatusChange = (status) => {
+    setStatus(status); // Update the status state
+  }
+  
   const handleSortChange = (menuItem) => {
     setSelectedArgument(menuItem)
     sortBy(menuItem)
@@ -20,7 +25,9 @@ const SideBar = ({ filterData, sortBy}) => {
       <Region 
         selectedRegions={selectedRegions}
       />
-      <Status />
+      <Status 
+        onStatusChange={onStatusChange}
+      />
     </div>
   )
 }
