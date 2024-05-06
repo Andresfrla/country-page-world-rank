@@ -6,6 +6,7 @@ import SideBar from "./_components/_SideBar/page";
 import { fetchData } from "./_utils/_GetAllCountries";
 import filterData from "./_utils/FilterData";
 import sortData from "./_utils/SortData";
+import filterStatus from "./_utils/filterStatus";
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -34,10 +35,15 @@ export default function Home() {
     fetchingData();
   }, [])
 
-  console.log(appStatus)
+  console.log(appStatus.isUnitedNations)
   
   const filteredData = filterData(data, searchValue);
-  const sortedData = sortData(filteredData, sortBy);
+  const secondFilter = filteredData.filter(
+    country => (
+      country.independent === true || country.unMember === true
+    )
+  )
+  const sortedData = sortData(secondFilter, sortBy);
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-[url('../../public/hero-image-wr.jpg')] bg-[#1B1D1F] bg-contain bg-no-repeat">

@@ -1,11 +1,13 @@
-export const filterStatus = ( data, status ) => {
-    const { isUnitedNations, isIndependent } = status
+const filterStatus = (filterData , appStatus) => {
+    const { isUnitedNations, isIndependent } = appStatus
 
-    if(data.isIndependent && isIndependent) {
-        return data.filter(country => country.isIndependent)
-    }
+    console.log(isUnitedNations, isIndependent)
 
-    if(data.unMember && isUnitedNations){
-        return data.filter(country => country.unMember)
-    }
-}
+    return filterData.filter(country =>
+      (
+        console.log(country)
+    )
+    );
+  };
+  
+export default filterStatus;
