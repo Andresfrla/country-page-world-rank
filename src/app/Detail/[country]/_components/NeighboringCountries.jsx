@@ -2,27 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { getOneCountryByCode } from '@/app/_utils/_GetOneCountryByCode';
 import Link from 'next/link';
 import { Skeleton } from '@mui/material';
+import Image from "next/image"
 
 const NeighboringCountries = ({ borders }) => {
     const [flags, setFlags] = useState({});
     const [countryNames, setCountryNames] = useState({});
 
-    if(borders) {
     useEffect(() => {
-        const fetchingFlags = async () => {
-            const flagsData = {};
-            const countryName = {}
-            await Promise.all(borders.map(async (countryCode) => {
-                const countryInfo = await getOneCountryByCode(countryCode);
-                flagsData[countryCode] = countryInfo[0].flags.png;
-                countryName[countryCode] = countryInfo[0].name.common;
-            }));
-            setFlags(flagsData);
-            setCountryNames(countryName);
-        };
+        if (borders) {
+            const fetchingFlags = async () => {
+                const flagsData = {};
+                const countryName = {};
+                await Promise.all(borders.map(async (countryCode) => {
+                    const countryInfo = await getOneCountryByCode(countryCode);
+                    flagsData[countryCode] = countryInfo[0].flags.png;
+                    countryName[countryCode] = countryInfo[0].name.common;
+                }));
+                setFlags(flagsData);
+                setCountryNames(countryName);
+            };
 
-        fetchingFlags();
-    }, [borders]);}
+            fetchingFlags();
+        }
+    }, [borders]);
 
     return (
         <div className='flex flex-col w-full justify-start p-5'>
@@ -40,7 +42,7 @@ const NeighboringCountries = ({ borders }) => {
                 )) : 
                 
                 <div className='flex gap-5'>
-                    <p className='flex w-28 text-center'>This country Don't have Neighboring Countries</p>
+                    <p className='flex w-28 text-center'>This country Do NOT have Neighboring Countries</p>
                     <div>
                         <Skeleton className='w-20 h-24 mt-[-20px] bg-[#6C727F] rounded-xl'>
                         </Skeleton>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { formatNumber } from "@/app/_utils/_FormatNumber";
 import { Be_Vietnam_Pro } from 'next/font/google';
 import { Loader } from "./_components/Loader";
+import Image from "next/image"
 
 const BeVietnamPro = Be_Vietnam_Pro({
   subsets: ["latin"],

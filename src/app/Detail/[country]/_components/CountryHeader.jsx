@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material'
 import React from 'react'
 import { Be_Vietnam_Pro } from 'next/font/google';
+import Image from "next/image"
 
 const BeVietnamPro = Be_Vietnam_Pro({
     subsets: ["latin"],

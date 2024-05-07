@@ -3,7 +3,7 @@ import { getOneCountry } from '@/app/_utils/_GetOneCountry'
 import { Typography } from '@mui/material'
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-
+import Image from "next/image"
 import CountryHeader from './_components/CountryHeader'
 import DemographicInfo from './_components/DemographicInfo'
 import OtherInformation from './_components/OtherInformation'

@@ -1,4 +1,5 @@
 import filterData from "@/app/_utils/FilterData";
+import Image from "next/image"
 
 const SearchBar = ({ searchValue, onSearchInputChange, data }) => {
   const filteredData = filterData(data, searchValue);
