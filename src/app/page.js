@@ -50,14 +50,14 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-[url('../../public/hero-image-wr.jpg')] bg-[#1B1D1F] bg-contain bg-no-repeat">
-      <img src="/Logo.svg" alt="Logo" className="xl:pt-32 md:pt-16"/>
-        <div className="flex flex-col bg-[#1C1D1F] rounded-2xl xl:w-[1200px] xl:h-[870px] lg:w-[976px] lg:h-[865px] mt-24 border-[0.1px] border-[#6C727F]">
+      <img src="/Logo.svg" alt="Logo" className="xl:pt-32 md:pt-16 sm:pt-14"/>
+        <div className="flex flex-col bg-[#1C1D1F] md:rounded-2xl xl:w-[1200px] xl:h-[870px] lg:w-[976px] lg:h-[865px] sm:w-[100%] sm:h-[950px] mt-24 sm:mt-14 sm:border-t border-[0.1px] border-[#6C727F]">
           <SearchBar
             data={data}
             searchValue={searchValue} 
             onSearchInputChange={handleSearchInputChange} 
           />
-          <div className="flex mt-12">
+          <div className="flex mt-12 sm:flex-col md:flex-row">
             <SideBar
               filterData={filteredData}
               sortBy={handleSortChange}
