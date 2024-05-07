@@ -6,7 +6,6 @@ import SideBar from "./_components/_SideBar/page";
 import { fetchData } from "./_utils/_GetAllCountries";
 import filterData from "./_utils/FilterData";
 import sortData from "./_utils/SortData";
-import filterStatus from "./_utils/filterStatus";
 
 export default function Home() {
   const [data, setData] = useState([]);
