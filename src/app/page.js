@@ -34,16 +34,20 @@ export default function Home() {
     
     fetchingData();
   }, [])
-
-  console.log(appStatus.isUnitedNations)
   
   const filteredData = filterData(data, searchValue);
-  const secondFilter = filteredData.filter(
-    country => (
-      country.independent === true || country.unMember === true
+
+  let secondFilter = [];
+
+  if (appStatus.isUnitedNations === true || appStatus.isIndent === true) {
+    secondFilter = filteredData.filter(
+      country => (
+        country.independent === true || country.unMember === true
+      )
     )
-  )
-  const sortedData = sortData(secondFilter, sortBy);
+  }
+  
+  const sortedData = (appStatus.isUnitedNations || appStatus.isIndent) ? sortData(secondFilter, sortBy) : sortData(filteredData, sortBy);
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-[url('../../public/hero-image-wr.jpg')] bg-[#1B1D1F] bg-contain bg-no-repeat">
