@@ -59,7 +59,7 @@ const DashBoard = ({ data, selectedSortBy }) => {
               <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
                <Typography className={`${BeVietnamPro.className}`}>Area (km²)</Typography>
               </TableCell>
-              <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
+              <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0 sm:hidden xl:block">
                 <Typography className={`${BeVietnamPro.className}`}>
                   Region
                 </Typography>
@@ -89,7 +89,7 @@ const DashBoard = ({ data, selectedSortBy }) => {
                     <Typography className={`${BeVietnamPro.className}`}>{formatNumber(country.area)}</Typography>
                   </Link>
                 </TableCell>
-                <TableCell className="w-36 text-[#D2D5DA] text-base border-none">
+                <TableCell className="w-36 text-[#D2D5DA] text-base border-none sm:hidden xl:block">
                   <Link href={`/Detail/${country.name.common}`}>
                     <Typography className={`${BeVietnamPro.className}`}>{country.region}</Typography>
                   </Link>
