@@ -4,10 +4,10 @@ const SearchBar = ({ searchValue, onSearchInputChange, data }) => {
   const filteredData = filterData(data, searchValue);
 
   return (
-    <div className="grid grid-cols-2 place-content-between gap-[400px] mt-6 items-center">
+    <div className="flex flex-row justify-between mt-6 items-center">
             <p className="text-xl font-bold text-[#6C727F] ml-7">Found {filteredData.length} countries</p>
-            <div>
-                <div className="w-[340px] h-[45px] bg-[#282B30] rounded-xl flex flex-row items-center gap-4">
+            <div className="flex">
+                <div className="w-[340px] h-[45px] bg-[#282B30] rounded-xl flex flex-row items-center gap-4 mr-5">
                     <img src="/Search.svg" alt="Correct" className="w-6 h-6 ml-2" />
                     <input 
                       type="text" 

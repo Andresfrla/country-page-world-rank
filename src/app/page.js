@@ -46,12 +46,12 @@ export default function Home() {
     )
   }
   
-  const sortedData = (appStatus.isUnitedNations || appStatus.isIndent) ? sortData(secondFilter, sortBy) : sortData(filteredData, sortBy);
+   const sortedData = (appStatus.isUnitedNations || appStatus.isIndent) ? sortData(secondFilter, sortBy) : sortData(filteredData, sortBy);
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-[url('../../public/hero-image-wr.jpg')] bg-[#1B1D1F] bg-contain bg-no-repeat">
-      <img src="/Logo.svg" alt="Logo" className="pt-32"/>
-        <div className="flex flex-col bg-[#1C1D1F] rounded-2xl w-[1200px] h-[870px] mt-24 border-[0.1px] border-[#6C727F]">
+      <img src="/Logo.svg" alt="Logo" className="xl:pt-32 md:pt-16"/>
+        <div className="flex flex-col bg-[#1C1D1F] rounded-2xl xl:w-[1200px] xl:h-[870px] lg:w-[976px] lg:h-[865px] mt-24 border-[0.1px] border-[#6C727F]">
           <SearchBar
             data={data}
             searchValue={searchValue} 

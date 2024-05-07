@@ -50,13 +50,13 @@ const DashBoard = ({ data, selectedSortBy }) => {
               <TableCell className={`w-[50px] text-left text-sm text-[#6C727F] bg-transparent border-none pl-0 ${BeVietnamPro}`}>
                 <Typography className={`${BeVietnamPro.className}`}>Flag</Typography>
               </TableCell>
-              <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
+              <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
                 <Typography className={`${BeVietnamPro.className}`}>Name</Typography>
               </TableCell>
               <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
                <Typography className={`${BeVietnamPro.className}`}>Population</Typography>
               </TableCell>
-              <TableCell className="w-40 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
+              <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0">
                <Typography className={`${BeVietnamPro.className}`}>Area (km²)</Typography>
               </TableCell>
               <TableCell className="w-36 text-left text-sm text-[#6C727F] bg-transparent border-none pl-0 sm:hidden xl:block">
@@ -74,7 +74,7 @@ const DashBoard = ({ data, selectedSortBy }) => {
                     <img src={country.flags.png} style={{ width: '50px', height: '38px', objectFit: 'cover' }} className="rounded" />
                   </Link>
                 </TableCell>
-                <TableCell className="w-40 font-medium text-[#D2D5DA] text-base border-none">
+                <TableCell className="w-36 font-medium text-[#D2D5DA] text-base border-none">
                   <Link href={`/Detail/${country.name.common}`}>
                     <Typography className={`${BeVietnamPro.className}`}>{country.name.common}</Typography>
                   </Link>
@@ -84,7 +84,7 @@ const DashBoard = ({ data, selectedSortBy }) => {
                     <Typography className={`${BeVietnamPro.className}`}>{formatNumber(country.population)}</Typography>
                   </Link>
                 </TableCell>
-                <TableCell className="w-40 text-[#D2D5DA] text-base border-none">
+                <TableCell className="w-36 text-[#D2D5DA] text-base border-none">
                   <Link href={`/Detail/${country.name.common}`}>
                     <Typography className={`${BeVietnamPro.className}`}>{formatNumber(country.area)}</Typography>
                   </Link>
